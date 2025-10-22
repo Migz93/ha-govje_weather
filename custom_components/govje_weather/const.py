@@ -84,6 +84,7 @@ TOOLTIP_CONDITION_MAP = {
     "Cloudy with showers": ATTR_CONDITION_RAINY,
     "Rain at times": ATTR_CONDITION_POURING,
     "Cloudy": ATTR_CONDITION_CLOUDY,
+    "Windy": ATTR_CONDITION_WINDY,
     # Add more mappings as needed based on the full set of tooltips
 }
 
