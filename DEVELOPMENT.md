@@ -82,10 +82,7 @@ The integration follows semantic versioning (MAJOR.MINOR.PATCH):
 
 ### Updating Versions
 
-**Important**: When making any changes to the integration, you must increment the version number in:
-
-1. `custom_components/govje_weather/manifest.json` - The `version` field
-2. `hacs.json` - The `hacs` field
+**Important**: When making any changes to the integration, you must increment the version number in `custom_components/govje_weather/manifest.json` - The `version` field.
 
 Example:
 ```json
@@ -93,20 +90,15 @@ Example:
 {
   "version": "1.0.2"
 }
-
-// hacs.json
-{
-  "hacs": "1.0.2"
-}
 ```
 
-Failing to update these version numbers will prevent Home Assistant from recognizing the updated integration when installed via HACS.
+Failing to update the version number will prevent Home Assistant from recognizing the updated integration when installed via HACS.
 
 ## Development Workflow
 
 1. Make code changes
 2. Test locally
-3. Increment version numbers in both `manifest.json` and `hacs.json`
+3. Increment version number in `manifest.json`
 4. Commit changes
 5. Create a release (if publishing)
 
