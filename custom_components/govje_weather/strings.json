@@ -10,18 +10,8 @@
       }
     },
     "abort": {
-      "already_configured": "This integration is already configured"
-    }
-  },
-  "options": {
-    "step": {
-      "init": {
-        "title": "Configure GOV.JE Weather",
-        "description": "Configure refresh interval for GOV.JE Weather",
-        "data": {
-          "scan_interval": "Refresh Interval (minutes)"
-        }
-      }
+      "already_configured": "This integration is already configured",
+      "single_instance_allowed": "Only a single instance of GOV.JE Weather is allowed"
     }
   }
 }
