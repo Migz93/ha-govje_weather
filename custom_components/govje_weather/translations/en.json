@@ -1,0 +1,83 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "GOV.JE Weather",
+        "description": "Add the GOV.JE Weather integration. Data is fetched from the Government of Jersey's public weather service — no credentials required."
+      }
+    },
+    "abort": {
+      "already_configured": "GOV.JE Weather is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "GOV.JE Weather Options",
+        "description": "Configure how often weather data is refreshed.",
+        "data": {
+          "scan_interval": "Refresh interval"
+        },
+        "data_description": {
+          "scan_interval": "How often to fetch new data from the GOV.JE weather service (in minutes). Minimum 5, maximum 1440 (24 hours)."
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "update_failed": {
+      "message": "Failed to update weather data from the GOV.JE service."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "temperature": {
+        "name": "Temperature"
+      },
+      "uv_index": {
+        "name": "UV Index"
+      },
+      "max_temp": {
+        "name": "Maximum Temperature"
+      },
+      "min_temp": {
+        "name": "Minimum Temperature"
+      },
+      "sunrise": {
+        "name": "Sunrise"
+      },
+      "sunset": {
+        "name": "Sunset"
+      },
+      "wind_speed_mph": {
+        "name": "Wind Speed (MPH)"
+      },
+      "wind_speed_knots": {
+        "name": "Wind Speed (Knots)"
+      },
+      "wind_speed_kph": {
+        "name": "Wind Speed (KPH)"
+      },
+      "wind_direction": {
+        "name": "Wind Direction"
+      },
+      "wind_force": {
+        "name": "Wind Force"
+      },
+      "rain_probability": {
+        "name": "Rain Probability"
+      },
+      "forecast_summary": {
+        "name": "Forecast Summary"
+      },
+      "confidence": {
+        "name": "Forecast Confidence"
+      }
+    },
+    "weather": {
+      "weather": {
+        "name": "[%key:component::weather::entity_component::_::name%]"
+      }
+    }
+  }
+}
