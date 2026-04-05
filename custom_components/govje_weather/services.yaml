@@ -1,0 +1,3 @@
+# yaml-language-server: $schema=../../schemas/yaml/services_schema.yaml
+# Service actions for govje_weather
+# No service actions are currently defined for this integration.
