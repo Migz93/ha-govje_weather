@@ -101,7 +101,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 [commits]: https://github.com/migz93/ha-govje-weather/commits/main
 [hacs]: https://hacs.xyz
 [hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
-[exampleimg]: https://raw.githubusercontent.com/migz93/ha-govje-weather/main/example.png
+[exampleimg]: docs/images/example.png
 [license-shield]: https://img.shields.io/github/license/custom-components/integration_blueprint.svg?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-Migz93-blue.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/migz93/ha-govje-weather.svg?style=for-the-badge
