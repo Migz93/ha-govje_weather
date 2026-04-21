@@ -19,6 +19,10 @@ cd "$SCRIPT_DIR/../.."
 
 # shellcheck source=script/.lib/output.sh
 source "$SCRIPT_DIR/../.lib/output.sh"
+# shellcheck source=script/.lib/download.sh
+source "$SCRIPT_DIR/../.lib/download.sh"
+# shellcheck source=script/.lib/ha_version.sh
+source "$SCRIPT_DIR/../.lib/ha_version.sh"
 
 if [[ ${APT_UPDATE:-"0"} == "1" ]]; then
     log_header "Updating system packages"
@@ -131,28 +135,62 @@ else
     log_info "No runtime dependencies defined (this is normal for blueprints)"
 fi
 
-HA_VERSION="${HA_VERSION:-$(grep '"homeassistant"' hacs.json | head -1 | sed 's/.*"homeassistant"\s*:\s*"\([^"]*\)".*/\1/')}"
-
-if [[ -z "$HA_VERSION" ]]; then
-    log_error "HA_VERSION not set and could not be determined from hacs.json"
-    exit 1
+if [[ -n "${HA_VERSION:-}" ]]; then
+    # Explicit HA_VERSION from environment - use exactly as specified
+    resolve_ha_version HA_VERSION "$HA_VERSION"
+else
+    # Read from hacs.json: treat YEAR.MONTH.0 as YEAR.MONTH so the latest
+    # stable patch is installed (hacs.json records minimum version, not pin)
+    HA_VERSION=$(grep '"homeassistant"' hacs.json | head -1 | sed 's/.*"homeassistant"\s*:\s*"\([^"]*\)".*/\1/')
+    if [[ -z "$HA_VERSION" ]]; then
+        log_error "HA_VERSION not set and could not be determined from hacs.json"
+        exit 1
+    fi
+    if [[ "$HA_VERSION" =~ ^[0-9]{4}\.[0-9]+\.0$ ]]; then
+        HA_VERSION="${HA_VERSION%.*}" # "2026.4.0" -> "2026.4" -> latest patch
+    fi
+    resolve_ha_version HA_VERSION "$HA_VERSION"
 fi
+
 HA_CORE_BASE_URL="https://raw.githubusercontent.com/home-assistant/core/${HA_VERSION}"
+
+# Recreate the venv if the installed HA version no longer matches the target.
+# This handles the cached-volume case: the venv persists across rebuilds, so without
+# this check an HA version bump would silently run on the old installation.
+# The marker file ($VENV_PATH/.ha-version) is written after a successful install below.
+HA_VERSION_MARKER="$VENV_PATH/.ha-version"
+if [[ -f "$HA_VERSION_MARKER" ]]; then
+    CACHED_HA_VERSION=$(cat "$HA_VERSION_MARKER")
+    if [[ "$CACHED_HA_VERSION" != "$HA_VERSION" ]]; then
+        log_warning "HA version changed ($CACHED_HA_VERSION -> $HA_VERSION) - recreating virtual environment"
+        rm -rf "$VENV_PATH"
+        uv venv "$VENV_PATH"
+        # shellcheck source=/dev/null
+        source "$VENV_PATH/bin/activate"
+    fi
+fi
 
 log_header "Installing Home Assistant ${HA_VERSION} runtime dependencies"
 mkdir -p "/tmp/homeassistant"
-curl -fsSL "${HA_CORE_BASE_URL}/homeassistant/package_constraints.txt" -o "/tmp/homeassistant/package_constraints.txt"  # constraints for requirements files
-curl -fsSL "${HA_CORE_BASE_URL}/requirements.txt" -o "/tmp/requirements.txt"  # required by requirements_all.txt
-curl -fsSL "${HA_CORE_BASE_URL}/requirements_all.txt" -o "/tmp/requirements_all.txt"
+_download \
+    "${HA_CORE_BASE_URL}/homeassistant/package_constraints.txt" \
+    "/tmp/homeassistant/package_constraints.txt"
+_download "${HA_CORE_BASE_URL}/requirements.txt" "/tmp/requirements.txt"
+_download "${HA_CORE_BASE_URL}/requirements_all.txt" "/tmp/requirements_all.txt"
 uv pip install --requirement "/tmp/requirements_all.txt"
 
 log_header "Installing Home Assistant ${HA_VERSION} test dependencies"
-curl -fsSL "${HA_CORE_BASE_URL}/requirements_test_pre_commit.txt" -o "/tmp/requirements_test_pre_commit.txt"  # required by requirements_test.txt
-curl -fsSL "${HA_CORE_BASE_URL}/requirements_test.txt" -o "/tmp/requirements_test.txt"
+_download \
+    "${HA_CORE_BASE_URL}/requirements_test_pre_commit.txt" \
+    "/tmp/requirements_test_pre_commit.txt"
+_download "${HA_CORE_BASE_URL}/requirements_test.txt" "/tmp/requirements_test.txt"
 uv pip install --requirement "/tmp/requirements_test.txt"
 
 log_header "Installing Home Assistant ${HA_VERSION} core"
 uv pip install "homeassistant==${HA_VERSION}"
+
+# Record the installed HA version so bootstrap can detect version changes on subsequent runs.
+echo "$HA_VERSION" > "$HA_VERSION_MARKER"
 
 set +e
 rm -rf /tmp/requirements*.txt /tmp/homeassistant/ || log_warning "Failed to clean up temporary files"
