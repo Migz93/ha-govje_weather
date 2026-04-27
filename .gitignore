@@ -210,9 +210,6 @@ pip-selfcheck.json
 # Local History for Visual Studio Code
 .history/
 
-# Migration source kept locally while rebuilding this integration
-original/
-
 # Built Visual Studio Code Extensions
 *.vsix
 
