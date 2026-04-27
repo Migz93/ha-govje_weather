@@ -71,6 +71,7 @@ script/hooks/
 # .env contains your project's HA_VERSION pin and other settings.
 # Both are user-owned; upstream changes would silently revert your pin or docs.
 .devcontainer/.env
+.devcontainer/post-attach.sh
 
 # ── Release management ───────────────────────────────────────
 # Release Please configuration is project-specific
