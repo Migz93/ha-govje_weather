@@ -25,6 +25,8 @@ This custom integration provides weather data for Jersey (Channel Islands) from 
 
 > **Note:** Time-of-day aware sensors automatically show the current period's data (morning, afternoon, or evening) as their state and include all future periods as attributes.
 
+![GOVJE Weather Example](docs/assets/govje-weather-example.png)
+
 ## Installation
 
 ### HACS Custom Repository (Recommended)
@@ -42,6 +44,10 @@ This custom integration provides weather data for Jersey (Channel Islands) from 
 2. Extract the contents.
 3. Copy the `custom_components/govje_weather` folder to your Home Assistant's `custom_components` directory.
 4. Restart Home Assistant.
+
+You can also use the My Home Assistant button:
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Migz93&repository=ha-govje_weather&category=integration)
 
 ## Configuration
 
