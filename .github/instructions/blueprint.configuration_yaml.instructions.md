@@ -21,13 +21,13 @@ For development and testing, keep configuration minimal:
 default_config:
 
 # Enable your integration
-govje_weather:
+ha_integration_domain:
 
 # Logging for development
 logger:
   default: info
   logs:
-    custom_components.govje_weather: debug
+    custom_components.ha_integration_domain: debug
 ```
 
 ## Modern Syntax Only
@@ -82,7 +82,7 @@ logger:
   default: warning
   logs:
     # Your integration - verbose
-    custom_components.govje_weather: debug
+    custom_components.ha_integration_domain: debug
 
     # Reduce noise from other components
     homeassistant.components.http: warning
