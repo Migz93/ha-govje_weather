@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/Migz93/ha-govje_weather/compare/v2.1.1...v2.1.2) (2026-06-12)
+
+
+### Bug Fixes
+
+* **weather:** map fog tooltip condition ([21671cb](https://github.com/Migz93/ha-govje_weather/commit/21671cbe83c01125cf07a75c4470096e77b6bbea))
+
 ## [2.1.1](https://github.com/Migz93/ha-govje_weather/compare/v2.1.0...v2.1.1) (2026-06-12)
 
 
