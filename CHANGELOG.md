@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/Migz93/ha-govje_weather/compare/v2.1.0...v2.1.1) (2026-06-12)
+
+
+### Bug Fixes
+
+* **weather:** map misty condition to fog ([44b2b30](https://github.com/Migz93/ha-govje_weather/commit/44b2b30e85b99ecdb76a32617ff00ed0353f6a08))
+
 ## [2.1.0](https://github.com/Migz93/ha-govje_weather/compare/v2.0.0...v2.1.0) (2026-04-26)
 
 ### Features
