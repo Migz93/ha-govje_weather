@@ -65,6 +65,7 @@ TOOLTIP_CONDITION_MAP: dict[str, str] = {
     "Cloudy": ATTR_CONDITION_CLOUDY,
     "Windy": ATTR_CONDITION_WINDY,
     "Drizzle": ATTR_CONDITION_RAINY,
+    "Fog": ATTR_CONDITION_FOG,
     "Misty": ATTR_CONDITION_FOG,
 }
 
