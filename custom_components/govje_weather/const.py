@@ -5,6 +5,7 @@ from logging import Logger, getLogger
 from homeassistant.components.weather import (
     ATTR_CONDITION_CLEAR_NIGHT,
     ATTR_CONDITION_CLOUDY,
+    ATTR_CONDITION_FOG,
     ATTR_CONDITION_LIGHTNING_RAINY,
     ATTR_CONDITION_PARTLYCLOUDY,
     ATTR_CONDITION_POURING,
@@ -64,6 +65,7 @@ TOOLTIP_CONDITION_MAP: dict[str, str] = {
     "Cloudy": ATTR_CONDITION_CLOUDY,
     "Windy": ATTR_CONDITION_WINDY,
     "Drizzle": ATTR_CONDITION_RAINY,
+    "Misty": ATTR_CONDITION_FOG,
 }
 
 # Wind direction mappings: cardinal/intercardinal to bearing degrees
