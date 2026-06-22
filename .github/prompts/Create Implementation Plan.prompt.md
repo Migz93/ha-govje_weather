@@ -129,9 +129,9 @@ Break down into logical phases (typically 3-5):
 
 **Integration-specific considerations:**
 
-- Domain: `govje_weather`
-- Title: GOVJE Weather
-- Class prefix: `GOVJEWeather`
+- Domain: `{domain}`
+- Title: (your integration title)
+- Class prefix: `{ClassPrefix}`
 - Follow patterns in `AGENTS.md` and path-specific `.instructions.md`
 
 ## Example Phase Structure
@@ -141,8 +141,8 @@ Break down into logical phases (typically 3-5):
 
 **Files to modify:**
 
-- `custom_components/govje_weather/sensor/__init__.py`
-- `custom_components/govje_weather/sensor/new_sensor.py` (create)
+- `custom_components/{domain}/sensor/__init__.py`
+- `custom_components/{domain}/sensor/new_sensor.py` (create)
 
 **Changes:**
 
