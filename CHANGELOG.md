@@ -2,6 +2,13 @@
 
 <!-- markdownlint-disable MD024 -->
 
+## [2.1.3](https://github.com/Migz93/ha-govje_weather/compare/v2.1.2...v2.1.3) (2026-06-25)
+
+
+### Bug Fixes
+
+* **weather:** map isolated thunderstorms condition ([a90d3c4](https://github.com/Migz93/ha-govje_weather/commit/a90d3c4ca9e65a0fbafac3cc3cd1943abe3dc31a))
+
 ## [2.1.2](https://github.com/Migz93/ha-govje_weather/compare/v2.1.1...v2.1.2) (2026-06-12)
 
 ### Bug Fixes
