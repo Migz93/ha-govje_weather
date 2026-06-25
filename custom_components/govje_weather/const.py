@@ -62,6 +62,7 @@ TOOLTIP_CONDITION_MAP: dict[str, str] = {
     "Sleet at times": ATTR_CONDITION_SNOWY_RAINY,
     "Very windy": ATTR_CONDITION_WINDY,
     "Stormy": ATTR_CONDITION_LIGHTNING_RAINY,
+    "Isolated thunderstorms": ATTR_CONDITION_LIGHTNING_RAINY,
     "Cloudy": ATTR_CONDITION_CLOUDY,
     "Windy": ATTR_CONDITION_WINDY,
     "Drizzle": ATTR_CONDITION_RAINY,
