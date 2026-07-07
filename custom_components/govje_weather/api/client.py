@@ -48,7 +48,7 @@ class GOVJEWeatherApiClient:
         """
         self._session = session
 
-    async def async_get_data(self) -> Any:
+    async def async_get_data(self, timeout: float = 10) -> Any:
         """
         Fetch the latest Jersey weather forecast from the GOV.JE API.
 
@@ -60,12 +60,13 @@ class GOVJEWeatherApiClient:
                 or HTTP error occurs.
             GOVJEWeatherApiClientError: For any other unexpected error.
         """
-        return await self._api_wrapper(method="get", url=REMOTE_URL)
+        return await self._api_wrapper(method="get", url=REMOTE_URL, timeout=timeout)
 
     async def _api_wrapper(
         self,
         method: str,
         url: str,
+        timeout: float,
         headers: dict | None = None,
     ) -> Any:
         """
@@ -74,6 +75,7 @@ class GOVJEWeatherApiClient:
         Args:
             method: The HTTP method (e.g. "get").
             url: The URL to request.
+            timeout: Maximum time to wait for the request, in seconds.
             headers: Optional extra headers.
 
         Returns:
@@ -84,7 +86,7 @@ class GOVJEWeatherApiClient:
             GOVJEWeatherApiClientError: On any other unexpected error.
         """
         try:
-            async with asyncio.timeout(10):
+            async with asyncio.timeout(timeout):
                 response = await self._session.request(
                     method=method,
                     url=url,
