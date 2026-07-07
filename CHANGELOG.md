@@ -2,6 +2,13 @@
 
 <!-- markdownlint-disable MD024 -->
 
+## [2.1.4](https://github.com/Migz93/ha-govje_weather/compare/v2.1.3...v2.1.4) (2026-07-07)
+
+
+### Bug Fixes
+
+* keep weather data available during transient fetch failures ([c99133b](https://github.com/Migz93/ha-govje_weather/commit/c99133b3ca6fac8b6121669976fea5e569c12181))
+
 ## [2.1.3](https://github.com/Migz93/ha-govje_weather/compare/v2.1.2...v2.1.3) (2026-06-25)
 
 
