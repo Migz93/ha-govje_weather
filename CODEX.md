@@ -6,10 +6,10 @@ ChatGPT Codex reads project instructions from [`AGENTS.md`](AGENTS.md). Read tha
 
 ## Quick Reference
 
-- **Domain:** `ha_integration_domain`
-- **Title:** Integration Blueprint
-- **Class prefix:** `IntegrationBlueprint`
-- **Main code:** `custom_components/ha_integration_domain/`
+- **Domain:** `govje_weather`
+- **Title:** GOVJE Weather
+- **Class prefix:** `GOVJEWeather`
+- **Main code:** `custom_components/govje_weather/`
 - **Validate:** `script/check` (type-check + lint + spell)
 - **Test:** `script/test`
 - **Run HA:** `./script/develop`
