@@ -77,7 +77,6 @@ SENSOR_DESCRIPTIONS: tuple[GOVJEWeatherSensorEntityDescription, ...] = (
     GOVJEWeatherSensorEntityDescription(
         key="uv_index",
         translation_key="uv_index",
-        icon="mdi:weather-sunny-alert",
         state_class=SensorStateClass.MEASUREMENT,
         future_aware=True,
     ),
@@ -100,20 +99,17 @@ SENSOR_DESCRIPTIONS: tuple[GOVJEWeatherSensorEntityDescription, ...] = (
     GOVJEWeatherSensorEntityDescription(
         key="sunrise",
         translation_key="sunrise",
-        icon="mdi:weather-sunset-up",
         future_aware=True,
     ),
     GOVJEWeatherSensorEntityDescription(
         key="sunset",
         translation_key="sunset",
-        icon="mdi:weather-sunset-down",
         future_aware=True,
     ),
     # --- Time-aware sensors ---
     GOVJEWeatherSensorEntityDescription(
         key="wind_speed_mph",
         translation_key="wind_speed_mph",
-        icon="mdi:weather-windy",
         native_unit_of_measurement="mph",
         state_class=SensorStateClass.MEASUREMENT,
         time_aware=True,
@@ -121,7 +117,6 @@ SENSOR_DESCRIPTIONS: tuple[GOVJEWeatherSensorEntityDescription, ...] = (
     GOVJEWeatherSensorEntityDescription(
         key="wind_speed_knots",
         translation_key="wind_speed_knots",
-        icon="mdi:windsock",
         native_unit_of_measurement="kn",
         state_class=SensorStateClass.MEASUREMENT,
         time_aware=True,
@@ -129,7 +124,6 @@ SENSOR_DESCRIPTIONS: tuple[GOVJEWeatherSensorEntityDescription, ...] = (
     GOVJEWeatherSensorEntityDescription(
         key="wind_speed_kph",
         translation_key="wind_speed_kph",
-        icon="mdi:speedometer",
         native_unit_of_measurement="km/h",
         state_class=SensorStateClass.MEASUREMENT,
         time_aware=True,
@@ -137,19 +131,16 @@ SENSOR_DESCRIPTIONS: tuple[GOVJEWeatherSensorEntityDescription, ...] = (
     GOVJEWeatherSensorEntityDescription(
         key="wind_direction",
         translation_key="wind_direction",
-        icon="mdi:compass",
         time_aware=True,
     ),
     GOVJEWeatherSensorEntityDescription(
         key="wind_force",
         translation_key="wind_force",
-        icon="mdi:weather-windy",
         time_aware=True,
     ),
     GOVJEWeatherSensorEntityDescription(
         key="rain_probability",
         translation_key="rain_probability",
-        icon="mdi:weather-rainy",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         time_aware=True,
@@ -157,13 +148,11 @@ SENSOR_DESCRIPTIONS: tuple[GOVJEWeatherSensorEntityDescription, ...] = (
     GOVJEWeatherSensorEntityDescription(
         key="forecast_summary",
         translation_key="forecast_summary",
-        icon="mdi:text-box-outline",
         time_aware=True,
     ),
     GOVJEWeatherSensorEntityDescription(
         key="confidence",
         translation_key="confidence",
-        icon="mdi:check-circle-outline",
         time_aware=True,
     ),
 )
