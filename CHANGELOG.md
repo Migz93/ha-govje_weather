@@ -2,6 +2,13 @@
 
 <!-- markdownlint-disable MD024 -->
 
+## [2.1.5](https://github.com/Migz93/ha-govje_weather/compare/v2.1.4...v2.1.5) (2026-08-22)
+
+
+### Maintenance
+
+* force release ([285e0d3](https://github.com/Migz93/ha-govje_weather/commit/285e0d340f600d2eb05a599ac0ab25250fa50d96))
+
 ## [2.1.4](https://github.com/Migz93/ha-govje_weather/compare/v2.1.3...v2.1.4) (2026-07-07)
 
 
