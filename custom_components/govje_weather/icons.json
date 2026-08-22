@@ -1,0 +1,39 @@
+{
+  "entity": {
+    "sensor": {
+      "uv_index": {
+        "default": "mdi:weather-sunny-alert"
+      },
+      "sunrise": {
+        "default": "mdi:weather-sunset-up"
+      },
+      "sunset": {
+        "default": "mdi:weather-sunset-down"
+      },
+      "wind_speed_mph": {
+        "default": "mdi:weather-windy"
+      },
+      "wind_speed_knots": {
+        "default": "mdi:windsock"
+      },
+      "wind_speed_kph": {
+        "default": "mdi:speedometer"
+      },
+      "wind_direction": {
+        "default": "mdi:compass"
+      },
+      "wind_force": {
+        "default": "mdi:weather-windy"
+      },
+      "rain_probability": {
+        "default": "mdi:weather-rainy"
+      },
+      "forecast_summary": {
+        "default": "mdi:text-box-outline"
+      },
+      "confidence": {
+        "default": "mdi:check-circle-outline"
+      }
+    }
+  }
+}
