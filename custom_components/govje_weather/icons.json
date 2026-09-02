@@ -1,5 +1,28 @@
 {
   "entity": {
+    "binary_sensor": {
+      "tide_warning": {
+        "default": "mdi:waves-arrow-up"
+      },
+      "thunder_warning": {
+        "default": "mdi:weather-lightning"
+      },
+      "thunderstorm_warning_ald": {
+        "default": "mdi:weather-lightning-rainy"
+      },
+      "wind_warning": {
+        "default": "mdi:weather-windy"
+      },
+      "snow_warning": {
+        "default": "mdi:weather-snowy"
+      },
+      "snow_alert": {
+        "default": "mdi:weather-snowy-heavy"
+      },
+      "ice_warning": {
+        "default": "mdi:weather-snowy-rainy"
+      }
+    },
     "sensor": {
       "uv_index": {
         "default": "mdi:weather-sunny-alert"

@@ -47,17 +47,14 @@ class GOVJEWeatherWarningBinarySensor(GOVJEWeatherEntity, BinarySensorEntity):
 
 
 WARNING_DESCRIPTIONS: tuple[BinarySensorEntityDescription, ...] = (
-    BinarySensorEntityDescription(key="TideWarning", translation_key="tide_warning", icon="mdi:waves-arrow-up"),
-    BinarySensorEntityDescription(
-        key="ThunderWarning", translation_key="thunder_warning", icon="mdi:weather-lightning"
-    ),
+    BinarySensorEntityDescription(key="TideWarning", translation_key="tide_warning"),
+    BinarySensorEntityDescription(key="ThunderWarning", translation_key="thunder_warning"),
     BinarySensorEntityDescription(
         key="ThunderstormWarningALD",
         translation_key="thunderstorm_warning_ald",
-        icon="mdi:weather-lightning-rainy",
     ),
-    BinarySensorEntityDescription(key="WindWarning", translation_key="wind_warning", icon="mdi:weather-windy"),
-    BinarySensorEntityDescription(key="SnowWarning", translation_key="snow_warning", icon="mdi:weather-snowy"),
-    BinarySensorEntityDescription(key="SnowAlert", translation_key="snow_alert", icon="mdi:weather-snowy-heavy"),
-    BinarySensorEntityDescription(key="IceWarning", translation_key="ice_warning", icon="mdi:weather-snowy-rainy"),
+    BinarySensorEntityDescription(key="WindWarning", translation_key="wind_warning"),
+    BinarySensorEntityDescription(key="SnowWarning", translation_key="snow_warning"),
+    BinarySensorEntityDescription(key="SnowAlert", translation_key="snow_alert"),
+    BinarySensorEntityDescription(key="IceWarning", translation_key="ice_warning"),
 )
