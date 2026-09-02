@@ -2,6 +2,13 @@
 
 <!-- markdownlint-disable MD024 -->
 
+## [2.2.0](https://github.com/Migz93/ha-govje_weather/compare/v2.1.5...v2.2.0) (2026-09-02)
+
+
+### Features
+
+* **binary_sensor:** add weather warning sensors ([a230dbe](https://github.com/Migz93/ha-govje_weather/commit/a230dbec3c3ca77d7c9436f38443c0ef220fe83d))
+
 ## [2.1.5](https://github.com/Migz93/ha-govje_weather/compare/v2.1.4...v2.1.5) (2026-08-22)
 
 
