@@ -49,7 +49,21 @@ class GOVJEWeatherDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except GOVJEWeatherApiClientError as exception:
             LOGGER.exception("Unexpected error fetching GOV.JE weather")
             return self._cached_data_or_raise(exception)
+        data["warnings"] = await self._async_get_warning_data()
         return data
+
+    async def _async_get_warning_data(self) -> dict[str, Any]:
+        """Fetch warning data, retaining the last known data if the endpoint is unavailable."""
+        try:
+            return await self.config_entry.runtime_data.client.async_get_warning_data()
+        except GOVJEWeatherApiClientCommunicationError as exception:
+            LOGGER.warning("Unable to fetch GOV.JE weather warnings - %s", exception)
+        except GOVJEWeatherApiClientError:
+            LOGGER.exception("Unexpected error fetching GOV.JE weather warnings")
+
+        if self.data:
+            return self.data.get("warnings", {})
+        return {}
 
     async def _async_retry_or_use_cached_data(
         self,
@@ -76,6 +90,7 @@ class GOVJEWeatherDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             return self._cached_data_or_raise(retry_exception)
 
         LOGGER.info("Retry fetching GOV.JE weather succeeded")
+        data["warnings"] = await self._async_get_warning_data()
         return data
 
     def _cached_data_or_raise(self, exception: GOVJEWeatherApiClientError) -> dict[str, Any]:

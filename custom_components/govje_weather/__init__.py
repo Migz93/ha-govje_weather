@@ -32,6 +32,7 @@ if TYPE_CHECKING:
     from .data import GOVJEWeatherConfigEntry
 
 PLATFORMS: list[Platform] = [
+    Platform.BINARY_SENSOR,
     Platform.SENSOR,
     Platform.WEATHER,
 ]

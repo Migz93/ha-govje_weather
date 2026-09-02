@@ -26,6 +26,7 @@ PARALLEL_UPDATES = 1
 
 # Data source
 REMOTE_URL = "https://prodgojweatherstorage.blob.core.windows.net/data/jerseyForecast.json"
+WARNING_STATUS_URL = "https://prodgojweatherstorage.blob.core.windows.net/data/JerseyWarningStatusXML.json"
 
 # Configuration keys
 CONF_SCAN_INTERVAL = "scan_interval"

@@ -22,6 +22,14 @@ This custom integration provides weather data for Jersey (Channel Islands) from 
   - Time-of-day aware rain probability
   - Time-of-day aware forecast confidence
   - Daily sunrise and sunset times
+- Weather warning binary sensors, with the publisher's raw warning data exposed as attributes:
+  - Tide warning
+  - Thunder warning
+  - Thunderstorm warning (ALD)
+  - Wind warning
+  - Snow warning
+  - Snow alert
+  - Ice warning
 
 > **Note:** Time-of-day aware sensors automatically show the current period's data (morning, afternoon, or evening) as their state and include all future periods as attributes.
 
@@ -70,7 +78,9 @@ To change these options:
 ## Data Source
 
 The integration uses weather data from the Government of Jersey's official weather service API. The data is available at:
-[https://prodgojweatherstorage.blob.core.windows.net/data/jerseyForecast.json](https://prodgojweatherstorage.blob.core.windows.net/data/jerseyForecast.json)
+
+- [Forecast data](https://prodgojweatherstorage.blob.core.windows.net/data/jerseyForecast.json)
+- [Weather warning status data](https://prodgojweatherstorage.blob.core.windows.net/data/JerseyWarningStatusXML.json)
 
 ## Contributing
 

@@ -30,6 +30,29 @@
     }
   },
   "entity": {
+    "binary_sensor": {
+      "tide_warning": {
+        "name": "Tide Warning"
+      },
+      "thunder_warning": {
+        "name": "Thunder Warning"
+      },
+      "thunderstorm_warning_ald": {
+        "name": "Thunderstorm Warning ALD"
+      },
+      "wind_warning": {
+        "name": "Wind Warning"
+      },
+      "snow_warning": {
+        "name": "Snow Warning"
+      },
+      "snow_alert": {
+        "name": "Snow Alert"
+      },
+      "ice_warning": {
+        "name": "Ice Warning"
+      }
+    },
     "sensor": {
       "temperature": {
         "name": "Temperature"

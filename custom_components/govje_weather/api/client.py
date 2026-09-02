@@ -17,7 +17,7 @@ from typing import Any
 
 import aiohttp
 
-from custom_components.govje_weather.const import REMOTE_URL
+from custom_components.govje_weather.const import REMOTE_URL, WARNING_STATUS_URL
 
 
 class GOVJEWeatherApiClientError(Exception):
@@ -61,6 +61,10 @@ class GOVJEWeatherApiClient:
             GOVJEWeatherApiClientError: For any other unexpected error.
         """
         return await self._api_wrapper(method="get", url=REMOTE_URL, timeout=timeout)
+
+    async def async_get_warning_data(self, timeout: float = 10) -> dict[str, Any]:
+        """Fetch the latest Jersey weather warning status from the GOV.JE API."""
+        return await self._api_wrapper(method="get", url=WARNING_STATUS_URL, timeout=timeout)
 
     async def _api_wrapper(
         self,
