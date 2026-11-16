@@ -90,7 +90,7 @@ jobs:
 
       - name: Set up mise
         if: steps.tested.outputs.done != 'true'
-        uses: jdx/mise-action@6be3c7ed4c21d4f76b208d351d95aac273ebb76d # v5.2.4
+        uses: jdx/mise-action@b44d12e7d0d8ee7461bb893e1b1993500433185b # v5.2.7
         with:
           # renovate: datasource=github-releases depName=jdx/mise extractVersion=^v(?<version>.+)$
           version: "2026.10.22"
