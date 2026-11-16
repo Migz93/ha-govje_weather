@@ -65,7 +65,7 @@ jobs:
 
       - name: Set up mise
         if: needs.detect-renovate.outputs.active == 'false'
-        uses: jdx/mise-action@f5be966e4a917d54244728e6a5fdcd1d93a35e6c # v5.2.6
+        uses: jdx/mise-action@b44d12e7d0d8ee7461bb893e1b1993500433185b # v5.2.7
         with:
           # renovate: datasource=github-releases depName=jdx/mise extractVersion=^v(?<version>.+)$
           version: "2026.11.3"
@@ -93,15 +93,14 @@ jobs:
             pinned=$(sed -n 's/^min_version *= *"\([^"]*\)".*/\1/p' mise.toml)
             latest=$(gh api repos/jdx/mise/releases/latest --jq '.tag_name | ltrimstr("v")')
             if [[ -n "${pinned}" && "${pinned}" != "${latest}" ]]; then
-              echo "| \`mise\` (min_version, workflows, dev container) | ${pinned} | ${latest} |"
+              echo "| \`mise\` (min_version, workflows) | ${pinned} | ${latest} |"
             fi
           } > rows.md
           if [[ -s rows.md ]]; then
             {
               echo "These pins have newer releases. Renovate is not active on this repository, so they are raised"
               echo "by hand: update \`mise.toml\` or \`mise.devcontainer.toml\`, and for \`mise\` itself also"
-              echo "the \`version:\` input of \`jdx/mise-action\` in the workflows and the mise feature in"
-              echo "\`.devcontainer/devcontainer.json\`."
+              echo "the \`version:\` input of \`jdx/mise-action\` in the workflows."
               echo "Python follows Home Assistant — raise it only within what \`script/ha-version-sync\` accepts."
               echo ""
               echo "| Tool | Pinned | Latest |"
