@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
-import voluptuous as vol
+import probatio
 
 from custom_components.govje_weather.const import (
     CONF_SCAN_INTERVAL,
@@ -16,7 +16,7 @@ from custom_components.govje_weather.const import (
 from homeassistant.helpers import selector
 
 
-def get_options_schema(defaults: Mapping[str, Any] | None = None) -> vol.Schema:
+def get_options_schema(defaults: Mapping[str, Any] | None = None) -> probatio.Schema:
     """
     Return the options flow schema.
 
@@ -27,9 +27,9 @@ def get_options_schema(defaults: Mapping[str, Any] | None = None) -> vol.Schema:
         Voluptuous schema with a scan interval field (in minutes).
     """
     defaults = defaults or {}
-    return vol.Schema(
+    return probatio.Schema(
         {
-            vol.Optional(
+            probatio.Optional(
                 CONF_SCAN_INTERVAL,
                 default=defaults.get(CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL),
             ): selector.NumberSelector(

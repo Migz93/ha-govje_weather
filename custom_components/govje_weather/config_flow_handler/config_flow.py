@@ -31,9 +31,7 @@ class GOVJEWeatherConfigFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         config_entry: config_entries.ConfigEntry,
     ) -> GOVJEWeatherOptionsFlow:
         """Return the options flow handler."""
-        from custom_components.govje_weather.config_flow_handler.options_flow import (  # noqa: PLC0415
-            GOVJEWeatherOptionsFlow,
-        )
+        from custom_components.govje_weather.config_flow_handler.options_flow import GOVJEWeatherOptionsFlow  # noqa: PLC0415
 
         return GOVJEWeatherOptionsFlow()
 
