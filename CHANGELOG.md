@@ -2,6 +2,17 @@
 
 <!-- markdownlint-disable MD024 -->
 
+## [3.0.0](https://github.com/Migz93/ha-govje_weather/compare/v2.2.0...v3.0.0) (2026-11-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* Home Assistant 2026.11.0 or newer is required to install this release.
+
+### Maintenance
+
+* sync updates from integration blueprint template ([#104](https://github.com/Migz93/ha-govje_weather/issues/104)) ([8eb38be](https://github.com/Migz93/ha-govje_weather/commit/8eb38be1683f34a12ac88f285e8570172e281ae9))
+
 ## [2.2.0](https://github.com/Migz93/ha-govje_weather/compare/v2.1.5...v2.2.0) (2026-09-02)
 
 
